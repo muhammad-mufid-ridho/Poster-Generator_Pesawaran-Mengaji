@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generator Poster Kajian Otomatis</title>
+
+    <!-- === CSS Eksternal === -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet" />
+    <!-- Google Fonts (Poppins masih dibutuhkan sebagai default) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome (Masih dibutuhkan untuk ikon lain) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" rel="stylesheet" />
+
+    <!-- === CSS Internal (Gaya Kustom) === -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- === Header === -->
+        <header class="bg-white shadow-sm border-b border-gray-200">
+            <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 rounded-full flex items-center justify-center bg-yellow-500 text-white font-bold text-xl">P</div>
+                    <h1 class="text-xl font-bold text-gray-800">Poster Kajian</h1>
+                    <span class="feature-badge">Pro</span>
+                </div>
+                <!-- === Navigasi Desktop & Mobile === -->
+                <nav id="mainNav" class="hidden md:flex absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none p-4 md:p-0 md:items-center md:space-x-6 z-40">
+                    <a href="#" class="block md:inline-block text-gray-600 hover:text-yellow-500 transition-colors py-2 md:py-0">Beranda</a>
+                    <a href="#" class="block md:inline-block text-gray-600 hover:text-yellow-500 transition-colors py-2 md:py-0">Template</a>
+                    <a href="#" class="block md:inline-block text-gray-600 hover:text-yellow-500 transition-colors py-2 md:py-0">Bantuan</a>
+                    <a href="#" class="block md:inline-block text-gray-600 hover:text-yellow-500 transition-colors py-2 md:py-0">Tentang</a>
+                </nav>
+                <div class="flex items-center">
+                    <button class="hidden md:block px-5 py-2 rounded-full bg-yellow-500 text-white font-medium hover:bg-yellow-600 transition-colors shadow-md"><i class="fas fa-crown mr-2"></i>Upgrade</button>
+                     <!-- === Tombol Hamburger === -->
+                    <button id="mobileMenuBtn" class="md:hidden text-gray-700 ml-4">
+                        <i id="menuIcon" class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- === Konten Utama === -->
+        <main class="container mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Kolom Kiri (Form Input) -->
+                <div class="w-full md:w-1/2 lg:w-2/5">
+                    <div class="bg-white p-6 shadow-md rounded-xl border border-gray-100">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-semibold text-gray-800">Detail Kajian</h2>
+                            <span class="text-sm text-gray-500"><i class="fas fa-history mr-1"></i> Auto-save</span>
+                        </div>
+                        <form id="posterForm" class="space-y-5">
+                            <!-- ... (isi form lainnya tetap sama) ... -->
+                            <div>
+                                <label for="title" class="block text-gray-700 text-sm font-medium mb-2">Judul Kajian</label>
+                                <input type="text" id="title" name="title" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="contoh: Meraih Lailatul Qadar" required />
+                            </div>
+                             <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label for="date" class="block text-gray-700 text-sm font-medium mb-2">Tanggal Acara</label>
+                                    <input type="date" id="date" name="date" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" required />
+                                </div>
+                                <div>
+                                    <label for="time" class="block text-gray-700 text-sm font-medium mb-2">Waktu Acara</label>
+                                    <input type="time" id="time" name="time" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" required />
+                                </div>
+                            </div>
+                            <div>
+                                <label for="location" class="block text-gray-700 text-sm font-medium mb-2">Lokasi Acara</label>
+                                <input type="text" id="location" name="location" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="contoh: Masjid Agung Kota" required />
+                            </div>
+                            <div>
+                                <label for="organization" class="block text-gray-700 text-sm font-medium mb-2">Nama Lembaga Penyelenggara</label>
+                                <input type="text" id="organization" name="organization" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="contoh: Remaja Islam Masjid Agung" required />
+                            </div>
+                            <div>
+                                <label for="contact" class="block text-gray-700 text-sm font-medium mb-2">Contact Person</label>
+                                <input type="text" id="contact" name="contact" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500" placeholder="contoh: 0812-3456-7890 (Panitia)" required />
+                            </div>
+                            <div>
+                                <label for="category" class="block text-gray-700 text-sm font-medium mb-2">Kategori Background</label>
+                                <select id="category" name="category" class="form-input w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                                     <option value="mountain islamic">Gunung Islami</option>
+                                    <option value="mosque" selected>Masjid</option>
+                                    <option value="nature islamic">Alam Islami</option>
+                                    <option value="islamic pattern">Pola Islami</option>
+                                    <option value="quran">Al-Quran</option>
+                                    <option value="abstract islamic">Abstrak Islami</option>
+                                    <option value="ramadan">Ramadan</option>
+                                    <option value="islamic calligraphy">Kaligrafi Islami</option>
+                                    <option value="islamic architecture">Arsitektur Islami</option>
+                                    <option value="sunset mosque">Masjid Senja</option>
+                                    <option value="islamic garden">Taman Islami</option>
+                                    <option value="mecca">Mekkah</option>
+                                    <option value="medina">Madinah</option>
+                                    <option value="kaaba">Ka'bah</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-primary w-full text-white py-3 px-4 rounded-lg hover:bg-yellow-600 transition font-medium"><i class="fas fa-magic mr-2"></i>Generate Poster</button>
+                        </form>
+                    </div>
+                    <!-- Kotak Tips -->
+                    <div class="mt-6 bg-yellow-50 p-4 rounded-xl border border-yellow-100">
+                         <h3 class="font-medium text-yellow-800 mb-2"><i class="fas fa-lightbulb mr-2"></i>Tips</h3>
+                        <p class="text-sm text-yellow-700">Gunakan judul yang ringkas & menarik.</p>
+                        <p class="text-sm text-yellow-700 mt-1">Pilih background yang tidak terlalu ramai agar fokus tetap pada teks.</p>
+                        <p class="text-sm text-yellow-700 mt-1">Pastikan semua informasi acara sudah benar sebelum di-download.</p>
+                    </div>
+                </div>
+
+                <!-- Kolom Kanan (Preview Poster) -->
+                <div class="w-full md:w-1/2 lg:w-3/5">
+                    <div class="bg-white p-6 shadow-md rounded-xl border border-gray-100">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-xl font-semibold text-gray-800">Preview Poster</h2>
+                            <div class="flex space-x-2">
+                                <button id="undoBtn" class="px-3 py-1 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" title="Undo (Ctrl+Z)" disabled>
+                                    <i class="fas fa-undo"></i>
+                                </button>
+                                <button id="redoBtn" class="px-3 py-1 rounded-lg bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors disabled:opacity-50 disabled:cursor-not-allowed" title="Redo (Ctrl+Y)" disabled>
+                                    <i class="fas fa-redo"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex justify-center">
+                            <div id="posterPreview" class="poster-preview relative">
+                                <!-- ... (placeholder dan loading indicator tetap sama) ... -->
+                                 <div id="loadingIndicator" class="loading hidden">
+                                    <div class="text-center">
+                                        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-yellow-500 mb-3"></div>
+                                        <div class="text-lg">Memproses...</div>
+                                    </div>
+                                </div>
+                                <div id="placeholder" class="flex items-center justify-center h-full text-gray-500">
+                                    <div class="text-center">
+                                        <i class="fas fa-image text-5xl mb-3 opacity-30"></i>
+                                        <p>Poster akan muncul di sini</p>
+                                        <p class="text-sm opacity-70 mt-2">Silahkan isi form dan klik "Generate Poster"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="bgGalleryContainer" class="mt-4 hidden">
+                            <h3 class="text-sm font-medium text-gray-700 mb-1">Pilih Background Lain</h3>
+                            <div id="bgGallery" class="bg-gallery"></div>
+                        </div>
+                         <div class="mt-6 flex flex-col sm:flex-row justify-center gap-3">
+                            <button id="refreshBtn" class="btn-secondary bg-gray-600 text-white py-2 px-6 rounded-lg hover:bg-gray-700 transition shadow-sm disabled" disabled><i class="fas fa-sync-alt mr-2"></i>Ganti Background</button>
+                            <button id="downloadBtn" class="btn-secondary bg-blue-600 text-white py-2 px-6 rounded-lg hover:bg-blue-700 transition shadow-sm disabled" disabled><i class="fas fa-download mr-2"></i>Download Poster</button>
+                            <!-- === Tombol Share Gambar via WA (Diaktifkan nanti via JS) === -->
+                            <button id="shareImageBtn" class="btn-secondary bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-600 transition shadow-sm disabled" disabled><i class="fab fa-whatsapp mr-2"></i>Bagikan Gambar</button>
+                        </div>
+                    </div>
+                    <!-- Opsi Bagikan Teks (Dihapus/Disembunyikan karena diganti share gambar) -->
+                    <!--
+                    <div id="shareOptions" class="mt-6 bg-white p-4 rounded-xl border border-gray-100 shadow-md hidden">
+                       ...
+                    </div>
+                    -->
+                </div>
+            </div>
+        </main>
+
+        <!-- === Footer === -->
+        <footer class="mt-12 bg-gray-800 text-white py-6">
+           <!-- ... (footer tetap sama) ... -->
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="mb-4 md:mb-0">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-8 h-8 rounded-full flex items-center justify-center bg-yellow-500 text-white font-bold">P</div>
+                            <h2 class="font-bold">Poster Kajian</h2>
+                        </div>
+                        <p class="text-sm text-gray-400 mt-1">© 2024 Poster Kajian Otomatis. Dibuat dengan <i class="fas fa-heart text-red-500"></i>.</p>
+                    </div>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-yellow-500 transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-500 transition-colors"><i class="fab fa-whatsapp text-xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-500 transition-colors"><i class="fab fa-youtube text-xl"></i></a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-500 transition-colors"><i class="fab fa-telegram text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- === JavaScript Eksternal & Internal === -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
