@@ -39,4 +39,4 @@ Sebelum menggunakan aplikasi ini, pastikan Anda memiliki:
 
 ### 1️⃣ Clone atau Unduh Repository  
 ```bash
-git clone <(https://github.com/muhammad-mufid-ridho/Poster-Generator_Pesawaran-Mengaji)>
+git clone https://github.com/muhammad-mufid-ridho/Poster-Generator_Pesawaran-Mengaji
