@@ -1,218 +1,241 @@
 /* --- CSS Utama & Font --- */
 body {
-   font-family: "Poppins", sans-serif;
-   background-color: #f8fafc;
-   font-size: 16px;
- }
- 
- /* --- Gaya Kustom untuk Elemen Tertentu --- */
- .brand-gradient {
-   background: linear-gradient(90deg, #ffd700 0%, #ffc107 100%);
- }
- .nav-item {
-   transition: all 0.3s ease;
- }
- .nav-item:hover {
-   background-color: rgba(255, 255, 255, 0.1);
-   transform: translateX(5px);
- }
- 
- /* --- Gaya Pratinjau Poster --- */
- .poster-preview {
-   position: relative;
-   width: 100%;
-   aspect-ratio: 9/16;
-   max-height: 80vh;
-   overflow: hidden;
-   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-   border-radius: 12px;
-   transition: all 0.5s ease;
-   background-color: #e2e8f0;
- }
- .poster-background {
-   position: absolute;
-   top: 0; left: 0; width: 100%; height: 100%;
-   background-size: cover;
-   background-position: center;
-   z-index: 1;
-   transition: transform 0.5s ease, background-image 0.3s ease;
- }
- .poster-preview:hover .poster-background {
-   transform: scale(1.03);
- }
- .poster-overlay {
-   position: absolute;
-   top: 0; left: 0; width: 100%; height: 100%;
-   background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
-   z-index: 2;
- }
- .poster-day-indicator {
-   position: absolute;
-   top: 5%; left: 0; width: 100%;
-   text-align: center;
-   color: white;
-   font-size: clamp(0.7rem, 2.2vw, 0.9rem);
-   font-weight: 500;
-   letter-spacing: 1px;
-   z-index: 3;
-   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
- }
- /* --- Gaya Judul Poster --- */
- .poster-title {
-   position: absolute;
-   top: 48%; /* Sesuaikan jika perlu */
-   left: 50%;
-   transform: translate(-50%, -50%);
-   width: 90%;
-   color: white;
-   font-size: clamp(1.8rem, 6.5vw, 3rem); /* Ukuran font dasar preview */
-   line-height: 1.15;
-   font-weight: 800; /* Default Poppins Bold */
-   text-transform: uppercase;
-   text-align: center;
-   z-index: 3;
-   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-   transition: all 0.3s ease;
-   overflow-wrap: break-word;
-   word-wrap: break-word;
-   word-break: break-word;
-   margin-bottom: 18px;
-   font-family: "Poppins", sans-serif; /* Default Font */
- }
- 
- /* DIHAPUS / TIDAK DIGUNAKAN LAGI: .poster-highlight & .poster-highlight-wrapper */
- /*.poster-highlight { ... } */
- /*.poster-highlight-wrapper { ... } */
- 
- /* --- Gaya Kontak/Detail Poster (Tanpa Ikon di Preview) --- */
- .poster-contact {
-   position: absolute;
-   top: 62%; /* Sesuaikan posisi vertikal jika perlu setelah menghapus highlight */
-   left: 50%;
-   transform: translateX(-50%);
-   width: 88%;
-   color: white;
-   font-size: clamp(0.85rem, 2.8vw, 1.15rem); /* Ukuran dasar preview */
-   z-index: 3;
-   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-   text-align: center;
- }
- .poster-contact > div {
-   margin-bottom: 5px;
-   line-height: 1.45;
-   text-align: center;
-   overflow-wrap: break-word;
-   word-wrap: break-word;
-   word-break: break-word;
- }
- /* DIHAPUS / TIDAK DIGUNAKAN LAGI: .poster-contact > div > i */
- /* .poster-contact > div > i { ... } */
- 
- .contact-label {
-   margin-right: 4px;
-   font-weight: 600;
-   display: inline;
- }
- .contact-value {
-   display: inline;
- }
- /* --- Gaya Footer Poster --- */
- .poster-footer {
-   position: absolute;
-   bottom: 1.5%; left: 0; width: 100%;
-   text-align: center;
-   color: white;
-   font-size: clamp(0.55rem, 1.7vw, 0.7rem);
-   opacity: 0.85;
-   z-index: 3;
- }
- .poster-footer i {
-   margin: 0 3px;
-   vertical-align: middle;
- }
- /* --- Gaya Form & Tombol --- */
- .form-input {
-   transition: all 0.3s ease;
-   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
- }
- .form-input:focus {
-   border-color: #ffc107;
-   box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.2);
- }
- .btn-primary {
-   background: linear-gradient(90deg, #ffd700 0%, #ffc107 100%);
-   transition: all 0.3s ease;
-   box-shadow: 0 4px 6px rgba(255, 193, 7, 0.2);
- }
- .btn-primary:hover:not(:disabled) {
-   transform: translateY(-2px);
-   box-shadow: 0 6px 12px rgba(255, 193, 7, 0.3);
- }
- .btn-secondary {
-   transition: all 0.3s ease;
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
- }
- .btn-secondary:hover:not(:disabled) {
-   transform: translateY(-2px);
-   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
- }
- .btn-secondary.disabled,
- button:disabled {
-   opacity: 0.5;
-   cursor: not-allowed;
-   transform: none;
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
- }
- /* --- Gaya Indikator Loading --- */
- .loading {
-   position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-   display: flex; justify-content: center; align-items: center;
-   background-color: rgba(0, 0, 0, 0.7);
-   color: white;
-   z-index: 20;
-   border-radius: 12px;
-   transition: opacity 0.3s ease;
- }
- .loading.hidden {
-   opacity: 0;
-   pointer-events: none;
- }
- /* --- Gaya Lain-lain & Utility --- */
- .feature-badge {
-   background: linear-gradient(90deg, #ffc107 0%, #ff9800 100%);
-   color: white;
-   padding: 2px 8px;
-   border-radius: 12px;
-   font-size: 0.7rem;
-   font-weight: 600;
-   text-transform: uppercase;
-   letter-spacing: 0.5px;
- }
- .hover-scale {
-   transition: all 0.3s ease;
- }
- .hover-scale:hover {
-   transform: scale(1.02);
- }
- @keyframes pulse {
-   0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); }
- }
- .pulse-animation {
-   animation: pulse 2s infinite;
- }
- /* --- Gaya Galeri Background Thumbnail --- */
- .bg-gallery {
-   display: flex; overflow-x: auto; gap: 8px; padding: 10px 0; margin-top: 10px;
-   scrollbar-width: thin; scrollbar-color: #ffc107 #f1f1f1;
- }
- .bg-gallery::-webkit-scrollbar { height: 5px; }
- .bg-gallery::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
- .bg-gallery::-webkit-scrollbar-thumb { background: #ffc107; border-radius: 10px; }
- .bg-thumbnail {
-   min-width: 60px; height: 40px; border-radius: 4px; cursor: pointer;
-   background-size: cover; background-position: center;
-   border: 2px solid transparent; transition: all 0.2s ease; flex-shrink: 0;
- }
- .bg-thumbnail.active {
-   border-color: #ffc107; transform: scale(1.1);
- }
+  font-family: "Poppins", sans-serif; /* Default font */
+  background-color: #f8fafc;
+  font-size: 16px;
+}
+
+/* --- Gaya Kustom untuk Elemen Tertentu --- */
+.brand-gradient {
+  background: linear-gradient(90deg, #ffd700 0%, #ffc107 100%);
+}
+.nav-item {
+  transition: all 0.3s ease;
+}
+.nav-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+/* --- Gaya Pratinjau Poster --- */
+.poster-preview {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9/16;
+  max-height: 80vh; /* Batasi tinggi maksimum */
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  transition: all 0.5s ease;
+  background-color: #e2e8f0; /* Warna placeholder */
+}
+.poster-background {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  transition: transform 0.5s ease, background-image 0.3s ease;
+}
+.poster-preview:hover .poster-background {
+  transform: scale(1.03); /* Efek zoom halus saat hover */
+}
+.poster-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+  z-index: 2;
+}
+.poster-day-indicator {
+  position: absolute;
+  top: 5%; left: 0; width: 100%;
+  text-align: center;
+  color: white;
+  font-size: clamp(0.7rem, 2.2vw, 0.9rem); /* Ukuran font responsif */
+  font-weight: 500;
+  letter-spacing: 1px;
+  z-index: 3;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  font-family: "Poppins", sans-serif; /* Pastikan pakai Poppins */
+}
+
+/* --- Gaya Judul Poster --- */
+.poster-title {
+  position: absolute;
+  top: 48%; /* Posisi vertikal judul */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  color: white;
+  font-size: clamp(1.8rem, 6.5vw, 3rem); /* Ukuran font responsif */
+  line-height: 1.15;
+  font-family: "Cinzel", serif; /* Font Cinzel */
+  font-weight: 800; /* Cinzel bold */
+  text-transform: uppercase;
+  text-align: center;
+  z-index: 3;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  transition: all 0.3s ease;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word; /* Penanganan teks panjang */
+}
+
+/* --- Gaya untuk Nama Pemateri di bawah Judul --- */
+.poster-speaker {
+  position: absolute;
+  top: 56%; /* Posisikan di bawah judul (sesuaikan jika perlu) */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%; /* Sedikit lebih sempit dari judul */
+  color: white;
+  font-family: "Poppins", sans-serif; /* Pakai Poppins untuk kontras */
+  font-size: clamp(1rem, 3.5vw, 1.4rem); /* Ukuran font responsif */
+  font-weight: 600; /* SemiBold */
+  text-align: center;
+  z-index: 3;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Shadow mirip kontak */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+
+/* --- Gaya Kontak/Detail Poster --- */
+.poster-contact {
+  position: absolute;
+  top: 64%; /* Posisi vertikal detail (setelah pemateri) */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 88%;
+  color: white;
+  font-size: clamp(0.80rem, 2.6vw, 1.1rem); /* Ukuran font detail */
+  z-index: 3;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  font-family: "Poppins", sans-serif; /* Pastikan pakai Poppins */
+}
+/* --- PERUBAHAN: Hapus margin umum --- */
+/* .poster-contact > div {
+   margin-bottom: 8px;
+} */
+/* ----------------------------------- */
+
+.contact-label {
+  margin-right: 4px;
+  font-weight: 600; /* Label (Penyelenggara:, CP:) bold */
+  display: inline;
+}
+.contact-value {
+  display: inline;
+}
+
+/* --- Gaya Footer Poster --- */
+.poster-footer {
+  position: absolute;
+  bottom: 1.5%; left: 0; width: 100%;
+  text-align: center;
+  color: white;
+  font-size: clamp(0.55rem, 1.7vw, 0.7rem); /* Ukuran font responsif */
+  opacity: 0.85;
+  z-index: 3;
+  font-family: "Poppins", sans-serif; /* Pastikan pakai Poppins */
+}
+.poster-footer i {
+  margin: 0 3px;
+  vertical-align: middle; /* Agar ikon sejajar teks */
+}
+
+/* --- Gaya Form & Tombol --- */
+.form-input {
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.form-input:focus {
+  border-color: #ffc107; /* Warna border saat fokus */
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.2); /* Ring saat fokus */
+}
+.btn-primary {
+  background: linear-gradient(90deg, #ffd700 0%, #ffc107 100%);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(255, 193, 7, 0.2);
+}
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px); /* Efek naik saat hover */
+  box-shadow: 0 6px 12px rgba(255, 193, 7, 0.3);
+}
+.btn-secondary {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.btn-secondary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+.btn-secondary.disabled,
+button:disabled {
+  opacity: 0.5; /* Tombol nonaktif terlihat redup */
+  cursor: not-allowed; /* Kursor nonaktif */
+  transform: none; /* Hilangkan efek hover */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Kembalikan shadow normal */
+}
+
+/* --- Gaya Indikator Loading --- */
+.loading {
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; justify-content: center; align-items: center;
+  background-color: rgba(0, 0, 0, 0.7); /* Latar belakang gelap transparan */
+  color: white;
+  z-index: 20; /* Tampil di atas elemen lain */
+  border-radius: 12px; /* Sesuaikan dengan radius preview */
+  transition: opacity 0.3s ease;
+}
+.loading.hidden {
+  opacity: 0; /* Sembunyikan dengan opacity */
+  pointer-events: none; /* Agar tidak bisa diklik saat hidden */
+}
+
+/* --- Gaya Lain-lain & Utility --- */
+.feature-badge {
+  background: linear-gradient(90deg, #ffc107 0%, #ff9800 100%);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.hover-scale {
+  transition: all 0.3s ease;
+}
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+@keyframes pulse {
+  0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); }
+}
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+/* --- Gaya Galeri Background Thumbnail --- */
+.bg-gallery {
+  display: flex; overflow-x: auto; gap: 8px; padding: 10px 0; margin-top: 10px;
+  scrollbar-width: thin; /* Scrollbar tipis untuk Firefox */
+  scrollbar-color: #ffc107 #f1f1f1; /* Warna scrollbar Firefox */
+}
+/* Scrollbar untuk Chrome/Safari/Edge */
+.bg-gallery::-webkit-scrollbar { height: 5px; }
+.bg-gallery::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+.bg-gallery::-webkit-scrollbar-thumb { background: #ffc107; border-radius: 10px; }
+
+.bg-thumbnail {
+  min-width: 60px; height: 40px; border-radius: 4px; cursor: pointer;
+  background-size: cover; background-position: center;
+  border: 2px solid transparent; transition: all 0.2s ease; flex-shrink: 0;
+}
+.bg-thumbnail.active {
+  border-color: #ffc107; /* Highlight thumbnail aktif */
+  transform: scale(1.1); /* Sedikit perbesar thumbnail aktif */
+}
